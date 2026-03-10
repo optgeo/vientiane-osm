@@ -105,13 +105,18 @@ const mapStyle = {
       url: "pmtiles://https://optgeo.github.io/vientiane-landuse/vientiane-landuse.pmtiles",
     },
   },
-  layers: [
-    ...baseLayers.slice(0, 19),
-    landuseFillLayer,
-    hillshadeLayer,
-    ...baseLayers.slice(19),
-    landuseOutlineLayer,
-  ],
+  layers: (() => {
+    const pierIdx = baseLayers.findIndex((l) => l.id === "landuse_pier");
+    if (pierIdx === -1) throw new Error("landuse_pier layer not found in baseLayers");
+    const afterPier = pierIdx + 1;
+    return [
+      ...baseLayers.slice(0, afterPier),
+      landuseFillLayer,
+      hillshadeLayer,
+      ...baseLayers.slice(afterPier),
+      landuseOutlineLayer,
+    ];
+  })(),
 };
 
 // ---------------------------------------------------------------------------
