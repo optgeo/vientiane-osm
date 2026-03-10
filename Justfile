@@ -3,10 +3,11 @@ set dotenv-load
 default: build
 
 build:
-    cd docs && npm run build
+    if [ ! -d node_modules ]; then npm install; fi
+    npm run build
 
 dev:
-    cd docs && npm run dev -- --host
+    npm run dev -- --host
 
 preview:
-    cd docs && npm run preview -- --host
+    npm run preview -- --host
