@@ -26,7 +26,7 @@ const baseLayers = layers("protomaps", DARK).map((layer) => {
 });
 
 // ---------------------------------------------------------------------------
-// Hillshade – dark theme warm accent, above basemap, below data
+// Hillshade – dark theme warm accent, above landuse fill, below roads/buildings
 // ---------------------------------------------------------------------------
 const hillshadeLayer = {
   id: "hillshade",
@@ -105,7 +105,13 @@ const mapStyle = {
       url: "pmtiles://https://optgeo.github.io/vientiane-landuse/vientiane-landuse.pmtiles",
     },
   },
-  layers: [...baseLayers, hillshadeLayer, landuseFillLayer, landuseOutlineLayer],
+  layers: [
+    ...baseLayers.slice(0, 19),
+    landuseFillLayer,
+    hillshadeLayer,
+    ...baseLayers.slice(19),
+    landuseOutlineLayer,
+  ],
 };
 
 // ---------------------------------------------------------------------------
