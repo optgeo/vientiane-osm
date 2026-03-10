@@ -1,0 +1,7 @@
+# Dependencies
+docs/node_modules/
+
+# Build cache
+docs/.vite/
+
+# npm lock (allow committing package-lock.json if desired)
