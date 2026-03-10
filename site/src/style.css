@@ -47,11 +47,9 @@ body {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  background: rgba(17, 17, 20, 0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  padding: 0 1rem clamp(72px, 14vh, 112px);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.25s ease;
