@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [viteSingleFile()],
   build: {
     outDir: "../docs",
-    emptyOutDir: false,
+    emptyOutDir: true,
     target: "es2022",
     cssCodeSplit: false,
     assetsInlineLimit: 1000000000,
