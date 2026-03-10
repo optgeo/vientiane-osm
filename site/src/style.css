@@ -1,0 +1,127 @@
+/* =========================================================
+   CSS Variables – Dark Theme
+   ========================================================= */
+:root {
+  --panel: rgba(20, 20, 24, 0.88);
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --text: #e0ddd8;
+  --text-muted: #a09890;
+  --accent: #d4a82a;
+  --bg: #111114;
+}
+
+/* =========================================================
+   Reset / Base
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+/* =========================================================
+   Map Container
+   ========================================================= */
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+/* =========================================================
+   Loading Overlay
+   ========================================================= */
+#loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 17, 20, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 100;
+}
+
+#loading-overlay.visible {
+  opacity: 1;
+}
+
+.loading-content {
+  padding: 0.75rem 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+}
+
+/* =========================================================
+   Status Bar – top-left
+   ========================================================= */
+#status-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  padding: 6px 12px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 0.8125rem;
+  max-width: calc(100vw - 20px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  transition: color 0.15s ease;
+}
+
+/* =========================================================
+   MapLibre control overrides – dark theme
+   ========================================================= */
+.maplibregl-ctrl-group {
+  background: var(--panel) !important;
+  border: 1px solid var(--panel-border) !important;
+  border-radius: 6px !important;
+}
+
+.maplibregl-ctrl-group button {
+  background-color: transparent !important;
+  color: var(--text) !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.maplibregl-ctrl-group button span {
+  filter: invert(1) brightness(0.85);
+}
+
+/* =========================================================
+   Mobile – keep controls accessible at bottom
+   ========================================================= */
+@media (max-width: 600px) {
+  #status-bar {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}

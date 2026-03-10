@@ -1,0 +1,21 @@
+{
+  "name": "vientiane-osm",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@protomaps/basemaps": "5.7.0",
+    "maplibre-gl": "5.19.0",
+    "maplibre-gl-layer-control": "0.14.0",
+    "pmtiles": "4.4.0"
+  },
+  "devDependencies": {
+    "vite": "7.3.1",
+    "vite-plugin-singlefile": "2.3.0"
+  }
+}
